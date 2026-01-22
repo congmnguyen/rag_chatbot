@@ -1,0 +1,19 @@
+[project]
+name = "triet-hoc-rag"
+version = "0.1.0"
+description = "RAG Chatbot cho Giáo trình Triết học Mác-Lênin"
+requires-python = ">=3.10"
+dependencies = [
+    "llama-index>=0.10.0",
+    "llama-index-vector-stores-chroma>=0.1.0",
+    "llama-index-embeddings-openai>=0.1.0",
+    "llama-index-llms-openai>=0.1.0",
+    "chromadb>=0.4.0",
+    "openai>=1.0.0",
+    "python-dotenv>=1.0.0",
+]
+
+[tool.uv]
+dev-dependencies = [
+    "ipython>=8.0.0",
+]

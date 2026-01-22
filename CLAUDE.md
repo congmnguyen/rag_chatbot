@@ -1,0 +1,83 @@
+# CLAUDE.md - RAG Chatbot Triết học Mác-Lênin
+
+## Project Overview
+
+A Vietnamese RAG (Retrieval-Augmented Generation) chatbot for studying Marxist-Leninist Philosophy (Triết học Mác-Lênin) - a required course in Vietnamese higher education. The chatbot answers questions based on official textbook content.
+
+## Tech Stack
+
+- **Language**: Python 3.10+
+- **Package Manager**: uv
+- **LLM Framework**: LlamaIndex
+- **Vector Store**: ChromaDB (persistent)
+- **Embeddings**: OpenAI `text-embedding-3-small`
+- **LLM Models**:
+  - Default: `gpt-4o-mini` (2.5M tokens/day)
+  - Advanced: `gpt-4o` (250k tokens/day)
+
+## Project Structure
+
+```
+rag_chatbot/
+├── chat.py           # Main chat interface with CLI commands
+├── config.py         # Configuration, prompts, and settings
+├── index_chunks.py   # Script to index document chunks into ChromaDB
+├── pyproject.toml    # Project dependencies
+├── chroma_db/        # Persisted vector database
+└── .env              # API keys (not committed)
+```
+
+## Quick Commands
+
+```bash
+# Run the chatbot
+uv run chat.py
+
+# Rebuild the vector index (run once or when data changes)
+uv run index_chunks.py
+
+# Install dependencies
+uv sync
+```
+
+## Environment Setup
+
+Create a `.env` file with:
+```
+OPENAI_API_KEY=your_key_here
+LLM_MODEL=gpt-4o-mini          # Optional, default shown
+LLM_MODEL_ADVANCED=gpt-4o      # Optional, default shown
+EMBEDDING_MODEL=text-embedding-3-small  # Optional
+```
+
+## Chat Commands
+
+- `/pro` - Switch to advanced model (gpt-4o)
+- `/normal` - Switch to default model (gpt-4o-mini)
+- `/source` - Toggle source display
+- `/help` - Show help
+- `/quit` - Exit
+
+## Data Files (External)
+
+The chatbot expects these files in the parent directory:
+- `chunks_with_context.json` - Pre-processed document chunks with context
+- `syllabus.json` - Course syllabus structure
+
+## Key Configuration (config.py)
+
+- `SIMILARITY_TOP_K = 5` - Number of chunks to retrieve
+- `CHUNK_SIZE = 1024`
+- `CHUNK_OVERLAP = 200`
+- System prompt is in Vietnamese, optimized for student learning
+
+## Architecture
+
+1. **Indexing** (`index_chunks.py`): Loads JSON chunks → Creates LlamaIndex Documents → Embeds with OpenAI → Stores in ChromaDB
+2. **Querying** (`chat.py`): Loads ChromaDB index → Creates query engine with LLM → Retrieves relevant chunks → Generates response with sources
+
+## Notes
+
+- The ChromaDB collection is named `triet_hoc_mln`
+- Vietnamese language throughout (prompts, UI, responses)
+- Sources are displayed with document paths after each response
