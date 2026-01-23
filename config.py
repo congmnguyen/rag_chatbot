@@ -13,7 +13,7 @@ DATA_DIR = BASE_DIR
 CHROMA_DIR = Path(__file__).parent / "chroma_db"
 
 # Data files
-CHUNKS_FILE = DATA_DIR / "chunks_with_context.json"
+CHUNKS_FILE = Path(__file__).parent / "chunks_v2.json"
 SYLLABUS_FILE = DATA_DIR / "syllabus.json"
 
 # OpenAI Models
@@ -31,7 +31,7 @@ EMBEDDING_MODEL = os.getenv("EMBEDDING_MODEL", "text-embedding-3-small")
 
 # RAG Settings
 SIMILARITY_TOP_K = 5  # Số chunks retrieve
-CHUNK_SIZE = 1024
+CHUNK_SIZE = 4096  # Tăng vì metadata có hierarchy path + summary dài
 CHUNK_OVERLAP = 200
 
 # System prompts
