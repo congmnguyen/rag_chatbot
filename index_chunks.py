@@ -85,12 +85,19 @@ def create_index(documents: list[Document]) -> VectorStoreIndex:
         api_key=config.OPENAI_API_KEY
     )
 
+    # Node parser with larger chunk size for metadata
+    node_parser = SentenceSplitter(
+        chunk_size=config.CHUNK_SIZE,
+        chunk_overlap=config.CHUNK_OVERLAP
+    )
+
     # Create index
     print("🔄 Creating vector index (this may take a moment)...")
     index = VectorStoreIndex.from_documents(
         documents,
         storage_context=storage_context,
         embed_model=embed_model,
+        transformations=[node_parser],
         show_progress=True
     )
 

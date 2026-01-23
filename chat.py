@@ -1,8 +1,17 @@
 #!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 """
 Chat interface cho RAG Chatbot Triết học Mác-Lênin
 """
+import sys
+import io
 import chromadb
+
+# Force UTF-8 encoding for stdin/stdout/stderr (WSL fix)
+if sys.platform.startswith('linux'):
+    sys.stdin = io.TextIOWrapper(sys.stdin.buffer, encoding='utf-8', errors='replace')
+    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8', errors='replace')
+    sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding='utf-8', errors='replace')
 
 # ANSI color codes
 GREEN = "\033[92m"
