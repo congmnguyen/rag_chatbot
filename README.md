@@ -18,8 +18,8 @@ Chatbot RAG (Retrieval-Augmented Generation) tiếng Việt cho môn Triết h�
 - **Vector Store**: ChromaDB (persistent)
 - **Embeddings**: OpenAI `text-embedding-3-small`
 - **LLM Models**:
-  - Mặc định: `gpt-4o-mini` (2.5M tokens/ngày)
-  - Nâng cao: `gpt-4o` (250k tokens/ngày)
+  - Mặc định: `gpt-4o-mini`
+  - Nâng cao: `gpt-4o` 
 
 ## Cài đặt
 
@@ -120,12 +120,8 @@ Các cấu hình chính trong `config.py`:
 
 ## Giấy phép
 
-[Thêm thông tin giấy phép của bạn]
+[MIT]
 
 ## Đóng góp
 
 Mọi đóng góp đều được chào đón! Vui lòng tạo issue hoặc pull request.
-
-## Liên hệ
-
-[Thêm thông tin liên hệ của bạn]
