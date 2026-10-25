@@ -14,16 +14,17 @@ if sys.platform.startswith('linux'):
     sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8', errors='replace')
     sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding='utf-8', errors='replace')
 
-# ANSI color codes
-GREEN = "\033[92m"
-WHITE = "\033[97m"
-RESET = "\033[0m"
 from llama_index.core import VectorStoreIndex, PromptTemplate
 from llama_index.vector_stores.chroma import ChromaVectorStore
 from llama_index.embeddings.openai import OpenAIEmbedding
 from llama_index.llms.openai import OpenAI
 
 import config
+
+# ANSI color codes
+GREEN = "\033[92m"
+WHITE = "\033[97m"
+RESET = "\033[0m"
 
 
 def load_index() -> VectorStoreIndex:
