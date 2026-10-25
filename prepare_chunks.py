@@ -492,7 +492,7 @@ def main() -> None:
     )
     parser.add_argument(
         "--input",
-        default=Path(__file__).parent / "giao-trinh-triet-hoc-mac-lenin.clean.txt",
+        default=Path(__file__).parent / "giao-trinh-triet-hoc-mac-lenin.txt",
         type=Path,
         help="Path to cleaned textbook text file.",
     )
