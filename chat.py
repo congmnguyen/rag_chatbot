@@ -105,6 +105,8 @@ def chat_loop(index: VectorStoreIndex):
 
     use_advanced = False
     show_sources = True
+    query_engine = None
+    engine_is_advanced = None
 
     while True:
         try:
@@ -153,7 +155,10 @@ Ví dụ câu hỏi:
                 continue
 
             # Query
-            query_engine, model = create_query_engine(index, use_advanced)
+            # Chỉ tạo lại query engine khi đổi model
+            if query_engine is None or engine_is_advanced != use_advanced:
+                query_engine, model = create_query_engine(index, use_advanced)
+                engine_is_advanced = use_advanced
             print(f"\n{GREEN}● Đang suy nghĩ...{RESET}")
 
             response = query_engine.query(user_input)
