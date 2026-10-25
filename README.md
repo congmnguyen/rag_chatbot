@@ -106,7 +106,7 @@ rag_chatbot/
 Các cấu hình chính trong `config.py`:
 
 - `SIMILARITY_TOP_K = 5` - Số lượng chunks được truy xuất
-- `CHUNK_SIZE = 1024` - Kích thước mỗi chunk
+- `CHUNK_SIZE = 4096` - Kích thước mỗi chunk (lớn vì metadata có đường dẫn mục lục và tóm tắt)
 - `CHUNK_OVERLAP = 200` - Độ chồng lấp giữa các chunks
 - System prompt được tối ưu hóa cho việc học tập của sinh viên
 
