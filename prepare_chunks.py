@@ -498,7 +498,7 @@ def main() -> None:
     )
     parser.add_argument(
         "--output",
-        default=Path(__file__).parent / "chunks_with_context.json",
+        default=config.CHUNKS_FILE,
         type=Path,
         help="Path to write chunks JSON.",
     )
