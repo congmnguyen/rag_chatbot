@@ -50,9 +50,10 @@ LLM_MODEL_ADVANCED=gpt-4o      # Tùy chọn, mặc định như trên
 EMBEDDING_MODEL=text-embedding-3-small  # Tùy chọn
 ```
 
-4. Chuẩn bị dữ liệu (đặt ở thư mục cha):
-   - `chunks_with_context.json` - Các đoạn văn bản đã được xử lý trước với ngữ cảnh
-   - `syllabus.json` - Cấu trúc đề cương môn học
+4. Tạo file chunks `chunks_v2.json` từ giáo trình `giao-trinh-triet-hoc-mac-lenin.txt` (gọi OpenAI để tóm tắt từng mục):
+```bash
+uv run prepare_chunks.py
+```
 
 5. Khởi tạo vector database (chỉ chạy một lần hoặc khi dữ liệu thay đổi):
 ```bash
