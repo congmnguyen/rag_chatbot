@@ -8,13 +8,10 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # Paths
-BASE_DIR = Path(__file__).parent.parent
-DATA_DIR = BASE_DIR
 CHROMA_DIR = Path(__file__).parent / "chroma_db"
 
 # Data files
 CHUNKS_FILE = Path(__file__).parent / "chunks_v2.json"
-SYLLABUS_FILE = DATA_DIR / "syllabus.json"
 
 # OpenAI Models
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
