@@ -29,7 +29,7 @@ def load_index() -> VectorStoreIndex:
     """Load existing Chroma index"""
     if not config.CHROMA_DIR.exists():
         print("❌ Database not found! Run 'uv run index_chunks.py' first.")
-        exit(1)
+        sys.exit(1)
 
     print(f"📂 Loading database from: {config.CHROMA_DIR}")
 
