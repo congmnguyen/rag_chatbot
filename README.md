@@ -73,6 +73,7 @@ uv run chat.py
 - `/pro` - Chuyển sang model nâng cao (gpt-4o)
 - `/normal` - Chuyển về model mặc định (gpt-4o-mini)
 - `/source` - Bật/tắt hiển thị nguồn trích dẫn
+- `/clear` - Xóa màn hình
 - `/help` - Hiển thị trợ giúp
 - `/quit` - Thoát chương trình
 
@@ -95,6 +96,7 @@ Bot: [Câu trả lời chi tiết hơn từ model nâng cao]
 rag_chatbot/
 ├── chat.py           # Giao diện chat chính với các lệnh CLI
 ├── config.py         # Cấu hình, prompts và settings
+├── prepare_chunks.py # Tách giáo trình thành chunks có metadata và tóm tắt
 ├── index_chunks.py   # Script để index các đoạn văn bản vào ChromaDB
 ├── pyproject.toml    # Dependencies của dự án
 ├── chroma_db/        # Vector database được lưu trữ
