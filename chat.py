@@ -81,7 +81,6 @@ def print_sources(response):
     for node in response.source_nodes:
         path = node.metadata.get('path', 'Unknown')
         if path not in seen:
-            score = node.score if hasattr(node, 'score') else 'N/A'
             print(f"  • {path}")
             seen.add(path)
 
