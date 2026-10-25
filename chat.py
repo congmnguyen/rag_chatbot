@@ -3,6 +3,7 @@
 """
 Chat interface cho RAG Chatbot Triết học Mác-Lênin
 """
+import os
 import sys
 import io
 import chromadb
@@ -134,7 +135,6 @@ def chat_loop(index: VectorStoreIndex):
                 continue
 
             if user_input.lower() == '/clear':
-                import os
                 os.system('clear' if os.name != 'nt' else 'cls')
                 continue
 
