@@ -131,32 +131,34 @@ def chat_loop(index: VectorStoreIndex):
             if not user_input:
                 continue
 
+            cmd = user_input.lower()
+
             # Commands
-            if user_input.lower() == '/quit':
+            if cmd == '/quit':
                 print("👋 Tạm biệt!")
                 break
 
-            if user_input.lower() == '/pro':
+            if cmd == '/pro':
                 use_advanced = True
                 print(f"✅ Đã chuyển sang model: {config.LLM_MODEL_ADVANCED}")
                 continue
 
-            if user_input.lower() == '/normal':
+            if cmd == '/normal':
                 use_advanced = False
                 print(f"✅ Đã chuyển về model: {config.LLM_MODEL}")
                 continue
 
-            if user_input.lower() == '/source':
+            if cmd == '/source':
                 show_sources = not show_sources
                 status = "BẬT" if show_sources else "TẮT"
                 print(f"✅ Hiển thị nguồn: {status}")
                 continue
 
-            if user_input.lower() == '/clear':
+            if cmd == '/clear':
                 os.system('clear' if os.name != 'nt' else 'cls')
                 continue
 
-            if user_input.lower() == '/help':
+            if cmd == '/help':
                 print("""
 📖 Hướng dẫn sử dụng:
 - Đặt câu hỏi về Triết học Mác-Lênin
