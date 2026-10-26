@@ -57,6 +57,7 @@ uv run prepare_chunks.py
 ```bash
 uv run index_chunks.py
 ```
+Thêm `--skip-test` để bỏ qua câu truy vấn thử sau khi index (tránh tốn một lần gọi LLM).
 
 ## Sử dụng
 
