@@ -3,6 +3,7 @@
 Script để index chunks vào Chroma vector store
 Chạy 1 lần để tạo database
 """
+import argparse
 import json
 import shutil
 from pathlib import Path
@@ -136,6 +137,14 @@ def test_query(index: VectorStoreIndex):
 
 
 def main():
+    parser = argparse.ArgumentParser(description="Index chunks vào Chroma vector store")
+    parser.add_argument(
+        "--skip-test",
+        action="store_true",
+        help="Bỏ qua test query sau khi index (tránh gọi LLM)",
+    )
+    args = parser.parse_args()
+
     print("="*60)
     print("🚀 INDEXING CHUNKS VÀO CHROMA")
     print("="*60)
@@ -151,7 +160,8 @@ def main():
     index = create_index(documents)
 
     # Test
-    test_query(index)
+    if not args.skip_test:
+        test_query(index)
 
     print("\n" + "="*60)
     print("✅ DONE! Database ready at:", config.CHROMA_DIR)
