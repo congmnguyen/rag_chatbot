@@ -42,13 +42,11 @@ cd rag_chatbot
 uv sync
 ```
 
-3. Tạo file `.env` với nội dung:
-```env
-OPENAI_API_KEY=your_key_here
-LLM_MODEL=gpt-4o-mini          # Tùy chọn, mặc định như trên
-LLM_MODEL_ADVANCED=gpt-4o      # Tùy chọn, mặc định như trên
-EMBEDDING_MODEL=text-embedding-3-small  # Tùy chọn
+3. Tạo file `.env` từ file mẫu rồi điền `OPENAI_API_KEY`:
+```bash
+cp .env.example .env
 ```
+Các biến `LLM_MODEL`, `LLM_MODEL_ADVANCED` và `EMBEDDING_MODEL` là tùy chọn (đã có giá trị mặc định trong file mẫu).
 
 4. Tạo file chunks `chunks_v2.json` từ giáo trình `giao-trinh-triet-hoc-mac-lenin.txt` (gọi OpenAI để tóm tắt từng mục):
 ```bash
