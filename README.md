@@ -123,7 +123,7 @@ Các cấu hình chính trong `config.py`:
 
 ## Giấy phép
 
-[MIT]
+[MIT](LICENSE)
 
 ## Đóng góp
 
