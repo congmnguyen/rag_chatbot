@@ -36,7 +36,11 @@ def load_index() -> VectorStoreIndex:
     print(f"📂 Loading database from: {config.CHROMA_DIR}")
 
     chroma_client = chromadb.PersistentClient(path=str(config.CHROMA_DIR))
-    chroma_collection = chroma_client.get_collection("triet_hoc_mln")
+    try:
+        chroma_collection = chroma_client.get_collection("triet_hoc_mln")
+    except Exception:
+        print("❌ Collection 'triet_hoc_mln' not found! Run 'uv run index_chunks.py' first.")
+        sys.exit(1)
 
     vector_store = ChromaVectorStore(chroma_collection=chroma_collection)
 
