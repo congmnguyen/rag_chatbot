@@ -10,6 +10,9 @@ __pycache__/
 # ChromaDB data
 chroma_db/
 
+# Generated chunks (prepare_chunks.py)
+chunks_v2.json
+
 # IDE
 .vscode/
 .idea/
