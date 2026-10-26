@@ -132,8 +132,12 @@ def test_query(index: VectorStoreIndex):
     print(f"💬 Trả lời:\n{response.response}")
 
     print("\n📚 Sources:")
+    seen = set()
     for node in response.source_nodes:
-        print(f"  - {node.metadata.get('path', 'Unknown')}")
+        path = node.metadata.get('path', 'Unknown')
+        if path not in seen:
+            print(f"  - {path}")
+            seen.add(path)
 
 
 def main():
