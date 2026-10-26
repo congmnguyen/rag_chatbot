@@ -69,8 +69,8 @@ uv run chat.py
 
 ### Lệnh trong chat
 
-- `/pro` - Chuyển sang model nâng cao (gpt-4o)
-- `/normal` - Chuyển về model mặc định (gpt-4o-mini)
+- `/pro` - Chuyển sang model nâng cao (`LLM_MODEL_ADVANCED`, mặc định `gpt-4o`)
+- `/normal` - Chuyển về model mặc định (`LLM_MODEL`, mặc định `gpt-4o-mini`)
 - `/source` - Bật/tắt hiển thị nguồn trích dẫn
 - `/clear` - Xóa màn hình
 - `/help` - Hiển thị trợ giúp
