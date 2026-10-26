@@ -169,7 +169,7 @@ Ví dụ câu hỏi:
             if show_sources:
                 print_sources(response)
 
-        except KeyboardInterrupt:
+        except (KeyboardInterrupt, EOFError):
             print("\n👋 Tạm biệt!")
             break
         except Exception as e:
