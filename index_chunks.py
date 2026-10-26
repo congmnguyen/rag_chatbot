@@ -143,7 +143,7 @@ def main():
     # Check API key
     if not config.OPENAI_API_KEY:
         print("❌ Error: OPENAI_API_KEY not set!")
-        print("   Create .env file with: OPENAI_API_KEY=sk-xxx")
+        print("   Copy .env.example to .env and add your API key")
         return
 
     # Load and index
