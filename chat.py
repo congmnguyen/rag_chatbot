@@ -87,6 +87,23 @@ def print_sources(response):
             seen.add(path)
 
 
+COMMANDS = [
+    ("/pro", "Chuyển sang model nâng cao cho câu hỏi phức tạp"),
+    ("/normal", "Chuyển về model thường"),
+    ("/source", "Bật/tắt hiển thị nguồn"),
+    ("/clear", "Xóa màn hình"),
+    ("/help", "Hiện trợ giúp"),
+    ("/quit", "Thoát"),
+]
+
+
+def print_commands():
+    """In danh sách lệnh (dùng chung cho banner và /help)"""
+    print("Lệnh:")
+    for name, desc in COMMANDS:
+        print(f"  {name:<8} - {desc}")
+
+
 def chat_loop(index: VectorStoreIndex):
     """Main chat loop"""
     print("\n" + "="*60)
@@ -95,13 +112,7 @@ def chat_loop(index: VectorStoreIndex):
     print(f"Model mặc định: {config.LLM_MODEL}")
     print(f"Model nâng cao: {config.LLM_MODEL_ADVANCED}")
     print("-"*60)
-    print("Lệnh:")
-    print("  /pro     - Chuyển sang model nâng cao cho câu hỏi phức tạp")
-    print("  /normal  - Chuyển về model thường")
-    print("  /source  - Bật/tắt hiển thị nguồn")
-    print("  /clear   - Xóa màn hình")
-    print("  /help    - Hiện trợ giúp")
-    print("  /quit    - Thoát")
+    print_commands()
     print("="*60)
 
     use_advanced = False
@@ -153,6 +164,7 @@ Ví dụ câu hỏi:
 - "Mối quan hệ giữa tồn tại xã hội và ý thức xã hội"
 - "So sánh chủ nghĩa duy vật và duy tâm"
                 """)
+                print_commands()
                 continue
 
             # Query
